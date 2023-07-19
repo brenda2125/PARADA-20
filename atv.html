@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brenda</title>
+</head>
+<body>
+    <h1>Calculando nota</h1>
+    <form id="formNotas">
+        <label for="nota1">Nota 1:</label>
+        <input type="number" id="nota1" required><br>
+
+        <label for="nota2">Nota 2:</label>
+        <input type="number" id="nota2" required><br>
+
+        <label for="nota3">Nota 3:</label>
+        <input type="number" id="nota3" required><br>
+
+        <button type="button" onclick="calcularMedia()">Calcular Média</button>
+    </form>
+
+    <p id="resultado"></p>
+
+    <script>
+        // Função para calcular a média e verificar aprovação
+        function calcularMedia() {
+            const nota1 = parseFloat(document.getElementById("nota1").value);
+            const nota2 = parseFloat(document.getElementById("nota2").value);
+            const nota3 = parseFloat(document.getElementById("nota3").value);
+
+            const media = (nota1 + nota2 + nota3) / 3;
+
+            let situacao;
+            if (media >= 6) {
+                situacao = "Aprovado";
+            } else {
+                situacao = "Reprovado";
+            }
+
+            document.getElementById("resultado").innerHTML = `Média do aluno: ${media.toFixed(2)} - Situação: ${situacao}`;
+        }
+    </script>
+</body>
+</html>
